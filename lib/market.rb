@@ -36,6 +36,12 @@ class Market
     end
     overstock
   end
+
+  def sorted_item_list
+
+    total_inventory.keys.sort
+    require "pry"; binding.pry
+  end
 end
 
 # pry(main).overstocked_items
