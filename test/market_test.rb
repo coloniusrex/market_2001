@@ -71,6 +71,13 @@ class MarketTest < Minitest::Test
                             :vendors => [@vendor2]},
                 @item4 => {:quantity => 50,
                             :vendors => [@vendor2]}}
-     assert_equal expected, @market.total_inventory 
+     assert_equal expected, @market.total_inventory
+  end
+
+  def test_overstocked_items
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
+    assert_equal [@item1], @market.overstocked_items
   end
 end

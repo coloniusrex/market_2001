@@ -26,6 +26,16 @@ class Market
     end
     item_totals
   end
+
+  def overstocked_items
+    overstock = []
+    total_inventory.each do |item, info|
+      if info[:quantity] > 50 && info[:vendors].count > 1
+        overstock << item
+      end
+    end
+    overstock
+  end
 end
 
 # pry(main).overstocked_items
